@@ -290,6 +290,50 @@ section{
 .service-info i{
   font-size: 8rem;
 }
+.us-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  gap: 2.5rem;
+}
+.us-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  height: 600px;
+  border-radius: 3rem;
+  cursor: pointer;
+  border: 5px solid transparent;
+  transition: 0.4s ease-in-out;
+}
+.us-box:hover{
+  background: var(--third-bg-color);
+  color: var(--main-color);
+  border: 5px solid var(--main-color);
+  transform: scale(1.03);
+}
+.us-info{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+.us-info h4{
+  font-size: 4rem;
+  margin: 2rem 0;
+  font-weight: 800;
+}
+.us-info p{
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.us-info i{
+  font-size: 8rem;
+}
 
 .projects{
   background-color: var(--second-bg-color);
@@ -450,4 +494,5 @@ section{
     flex-direction: column;
   }
 }
+
 
