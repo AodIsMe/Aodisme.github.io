@@ -6,15 +6,44 @@
   scroll-behavior: smooth;
   font-family: "Poppins";
   caret-color: transparent;
+  transition: background-color 0.25s ease, 
+              color 0.25s ease, 
+              border-color0.25s ease;
 }
 :root {
   --bg-color: #3B2042;
   --second-bg-color: #39254D;
   --third-bg-color: #101010;
-  --text-color: rgb(0, 0, 0);
+  --text-color: rgb(248, 240, 227);
   --nav-text-color: rgb(255, 255, 255);
-  --main-color: #154cff;
+  --main-color: #5e2fce;
   --box-color: #534582;
+  --gradient-color-one: #fd47b7;
+  --gradient-color-two: #5e2fce;
+  --header-bg-color: rgba(0, 0, 0, 0.3);
+  --menu-bg-color: rgba(83, 69, 130, 0.8);
+  --box-shadow: #5e2fce;
+  --btn-color: #5e2fce;
+  --btn-text-color: rgb(248, 240, 227);
+  --hover-color: rgb(19, 206, 29);
+}
+
+html[data-theme="light"]{
+  --bg-color: rgb(248, 240, 227);
+  --second-bg-color: #dfdce2;
+  --third-bg-color: #a5a4a4;
+  --text-color: rgb(0, 0, 0);
+  --nav-text-color: rgb(0, 0, 0);
+  --main-color: #ffffff;
+  --box-color: #e4e1e1;
+  --gradient-color-one: #055512;
+  --gradient-color-two: #2fce64;
+  --header-bg-color: rgba(0, 0, 0, 0.3);
+  --menu-bg-color: rgba(228, 225, 225, 0.8);
+  --box-shadow: #055512;
+  --btn-color: #055512;
+  --btn-text-color: rgb(248, 240, 227);
+  --hover-color: rgb(19, 206, 29);
 }
 html {
   font-size: 60%;
@@ -32,7 +61,7 @@ body{
   top: 0;
   left: 0%;
   padding: 4rem 15%;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--header-bg-color);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
@@ -42,9 +71,11 @@ body{
 
 #menu-icon{
   font-size: 3.5rem;
-  color: var(--main-color);
+  color: var(--nav-text-color);
   display: none;
 }
+
+
 
 .logo{
   font-size: 3rem;
@@ -60,8 +91,8 @@ body{
 span{
   background: linear-gradient(
     270deg,
-    #08dfdf 10%,
-    #154cff 100%
+    var(--gradient-color-one) 10%,
+    var(--gradient-color-two) 100%
   );
   background-clip: text;
   color: transparent;
@@ -75,8 +106,8 @@ span{
   border-bottom: 3px solid transparent;
 }
 .navbar a:hover{
-  color: var(--main-color);
-  border-bottom: 3px solid var(--main-color);
+  color: var(--hover-color);
+  border-bottom: 3px solid var(--hover-color);
 }
 .gradient-btn{
   font-size: 1.8rem;
@@ -84,14 +115,15 @@ span{
   border-radius: 3rem;
   background: linear-gradient(
     270deg,
-    #08dfdf 10%,
-    #154cff 100%
+    var(--gradient-color-one) 10%,
+    var(--gradient-color-two) 100%
   );
   letter-spacing: 1px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
   border: none;
   text-wrap: nowrap;
+  color: var(--btn-text-color)
 }
 .gradient-btn:hover{
   transform: scale(1.05);
@@ -133,13 +165,13 @@ section{
 .home-img img{
   width: 32vw;
   border-radius: 50%;
-  box-shadow: 0 0 25px var(--main-color);
+  box-shadow: 0 0 25px var(--box-shadow);
   transition: 0.4s ease-in-out;
 }
 .home-img img:hover{
-  box-shadow: 0 0 25px var(--main-color),
-              0 0 50px var(--main-color),
-              0 0 100px var(--main-color);
+  box-shadow: 0 0 25px var(--box-shadow),
+              0 0 50px var(--box-shadow),
+              0 0 100px var(--box-shadow);
 }
 
 .social-icons a{
@@ -149,17 +181,17 @@ section{
   font-size: 3rem;
   padding: 1rem;
   background: transparent;
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--box-shadow);
   border-radius: 50%;
-  color: var(--main-color);
+  color: var(--box-shadow);
   margin: 3rem 0.5rem;
   transition: 0.3s ease-in-out;
 }
 .social-icons a:hover{
   color:var(--text-color);
-  background-color: var(--main-color);
+  background-color: var(--box-shadow);
   transform: scale(1.2)translateY(-5px);
-  box-shadow: 0 0 25px var(--main-color);
+  box-shadow: 0 0 25px var(--box-shadow);
 }
 .btn-group{
   display: flex;
@@ -168,11 +200,11 @@ section{
 .btn{
   display: inline-block;
   padding: 1rem 3rem;
-  background-color: var(--main-color);
-  box-shadow: 0 0 25px var(--main-color);
+  background-color: var(--btn-color);
+  box-shadow: 0 0 25px var(--btn-color);
   border-radius: 3rem;
   font-size: 1.8rem;
-  color: black;
+  color: var(--btn-text-color);
   border: 2px solid transparent;
   font-weight: 600;
   transition: 0.3s ease-in-out;
@@ -184,7 +216,7 @@ section{
               0 0 50px var(--main-color);
 }
 .btn-group a:nth-of-type(2){
-  background-color: black;
+  background-color: var(--third-bg-color);
   color: var(--main-color);
   border: 2px solid var(--main-color);
   box-shadow: 0 0 25px transparent;
@@ -192,7 +224,7 @@ section{
 .btn-group a:nth-of-type(2):hover{
   box-shadow: 0 0 25px var(--main-color);
   background-color: var(--main-color);
-  color: black;
+  color: var(--third-bg-color);
 }
 
 .about{
@@ -205,13 +237,13 @@ section{
 .about-img img{
   width: 32vw;
   border-radius: 50%;
-  box-shadow: 0 0 25px var(--main-color);
+  box-shadow: 0 0 25px var(--box-shadow);
   transition: 0.3s ease-in-out;
 }
 .about-img img:hover{
-  box-shadow: 0 0 25px var(--main-color),
-              0 0 50px var(--main-color),
-              0 0 100px var(--main-color);
+  box-shadow: 0 0 25px var(--box-shadow),
+              0 0 50px var(--box-shadow),
+              0 0 100px var(--box-shadow);
 }
 .about-content h2{
   font-size: 7rem;
@@ -241,7 +273,7 @@ section{
 }
 .services{
   background-color: var(--bg-color);
-  color: black;
+  color: var(--text-color);
 }
 .services h2{
   color: var(--text-color);
@@ -308,19 +340,19 @@ section{
   justify-content: center;
   text-align: center;
   background-color: var(--box-color);
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--box-shadow);
   border-radius: 3rem;
   gap: 2rem;
   padding: 5rem 2rem;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 0 5px var(--main-color);
+  box-shadow: 0 0 5px var(--box-shadow);
   transition: 0.3s ease-in-out;
 }
 
 .project-card:hover{
-  box-shadow: 0 0 25px var(--main-color),
-              0 0 50px var(--main-color);
+  box-shadow: 0 0 25px var(--box-shadow),
+              0 0 50px var(--box-shadow);
   transform: scale(1.02);
 }
 .project-card img{
@@ -329,9 +361,11 @@ section{
 }
 .project-card h3{
   font-size: 3rem;
+  color: var(--text-color);
 }
 .project-card p{
   font-size: 1.6rem;
+  color: var(--text-color);
 }
 
 .contact{
@@ -360,7 +394,7 @@ section{
   color:var(--text-color);
   background-color: var(--box-color);
   border-radius: 2rem;
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--box-shadow);
   margin: 1.5rem 0;
   resize: none;
   caret-color: auto;
@@ -382,7 +416,7 @@ section{
   margin-left: 20px;
 }
 .footer ul li a{
-  color: white;
+  color: var(--text-color);
   border-bottom: 3px solid transparent;
   transition: 0.3s ease-in-out;
 }
@@ -405,10 +439,10 @@ section{
     right: 0;
     width: 50%;
     padding: 1rem 3rem;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--menu-bg-color);
     border-bottom-left-radius: 2rem;
-    border-left: 2px solid var(--main-color);
-    border-bottom: 2px solid var(--main-color);
+    border-left: 2px solid var(--box-shadow);
+    border-bottom: 2px solid var(--box-shadow);
     display: none;
   }
   .navbar a{
@@ -451,5 +485,75 @@ section{
   }
 }
 
+.settings{
+  position: relative;
+  display: inline-block;
+}
 
+.settings-button{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--nav-text-color);
+}
 
+.settings-button i{
+  font-size: 3.5rem;
+  color: var(--nav-text-color);
+  cursor: pointer;
+}
+
+.settings-button span{
+  font-size: 1.8rem;
+  color: var(--nav-text-color);
+}
+
+.settings-button:hover{
+  opacity: 0.7;
+}
+.settings-menu{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 180px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--menu-bg-color);
+  border: 1px solid var(--box-shadow);
+  z-index: 999;
+}
+
+.menu-item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.menu-item:hover{
+  background: var(--second-bg-color);
+  border-bottom: 3px solid var(--hover-color);
+}
+
+.menu-item i{
+  font-size: 3.5rem;
+  color: var(--nav-text-color);
+  cursor: pointer;
+}
+
+.menu-item span{
+  font-size: 1.8rem;
+  color: var(--nav-text-color);
+}
+
+.menu-item:hover span,
+.menu-item:hover i {
+  color: var(--hover-color);
+}
